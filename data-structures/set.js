@@ -64,6 +64,19 @@ class Set {
         return intersectionSet;
     
       }
+
+      difference(set) {
+        const newSet = new Set();
+    
+        this.values().forEach(value => {
+          if(!set.has(value)){
+            newSet.add(value);
+          }
+        })
+        
+        return newSet;
+      }
+      
      
     
     // Only change code above this line
