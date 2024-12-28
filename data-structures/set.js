@@ -77,6 +77,22 @@ class Set {
         return newSet;
       }
       
+      isSubsetOf(set){
+        if(set.length < this.length){
+          return false;
+        }else{
+          let isSubset = true;
+          this.values().forEach(value => {
+            if(!set.has(value)){
+              isSubset = false;
+            }
+          })
+    
+          return isSubset;
+        }
+      }
+      
+      
      
     
     // Only change code above this line
