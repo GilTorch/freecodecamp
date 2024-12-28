@@ -16,11 +16,39 @@ function sym(...args) {
        })
        return Array.from(new Set(difference));
     } else {
-       // console.log(args.length)
-
        const lastArray = args[args.length - 1];
        const newArgs = args.slice(0, args.length - 1);
-       
        return sym(sym(...newArgs), lastArray)
     }
  }
+
+
+ // solution with reduce
+
+ function sym1() {
+    const args = [];
+    for (let i = 0; i < arguments.length; i++) {
+      args.push(arguments[i]);
+    }
+  
+    function symDiff(arrayOne, arrayTwo) {
+      const result = [];
+  
+      arrayOne.forEach(function (item) {
+        if (arrayTwo.indexOf(item) < 0 && result.indexOf(item) < 0) {
+          result.push(item);
+        }
+      });
+  
+      arrayTwo.forEach(function (item) {
+        if (arrayOne.indexOf(item) < 0 && result.indexOf(item) < 0) {
+          result.push(item);
+        }
+      });
+  
+      return result;
+    }
+  
+    // Apply reduce method to args array, using the symDiff function
+    return args.reduce(symDiff);
+  }
