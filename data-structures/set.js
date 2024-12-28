@@ -40,7 +40,7 @@ class Set {
     size() {
       return this.length;
     }
-    
+
     union(set) {
         const unionSet = new Set();
         const setAValues = set.values();
@@ -48,6 +48,23 @@ class Set {
         [...setAValues, ...setBValues].forEach((element) => unionSet.add(element))
         return unionSet;
      }
+
+     intersection(set){
+
+        const setAValues = this.values();
+        const setBValues = set.values();
+        const intersectionSet = new Set();
+    
+        setAValues.forEach((setAValue) => {
+          if(setBValues.includes(setAValue)){
+            intersectionSet.add(setAValue);
+          }
+        })
+    
+        return intersectionSet;
+    
+      }
+     
     
     // Only change code above this line
   }
