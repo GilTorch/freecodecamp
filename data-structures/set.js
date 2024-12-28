@@ -41,5 +41,13 @@ class Set {
       return this.length;
     }
     
+    union(set) {
+        const unionSet = new Set();
+        const setAValues = set.values();
+        const setBValues = this.values();
+        [...setAValues, ...setBValues].forEach((element) => unionSet.add(element))
+        return unionSet;
+     }
+    
     // Only change code above this line
   }
